@@ -1,0 +1,18 @@
+<table class="table">
+  <tr class="header-row">
+    <td>Дата</td>
+    <td>Касса</td>
+    <td>Приход</td>
+    <td>Вложения</td>
+    <td>Списания</td>
+    <td>Примечание</td>
+  </tr>
+  <tr *ngFor="let row of rows">
+    <td>{{row.date}}</td>
+    <td>{{row.summ}}</td>
+    <td>{{row.income}}</td>
+    <td>{{row.vloj}}</td>
+    <td>{{row.writeOff}}</td>
+    <td>{{row.sallary}}</td>
+  </tr>
+</table>

@@ -1,0 +1,97 @@
+<div style="width: 100%;margin: 0;padding: 0">
+  <md-toolbar color="warn">
+    <i class="material-icons" style="font-size: 48px">local_atm</i>
+    <span>accounting-app</span>
+  </md-toolbar>
+
+  <md-card style="display: flex;flex-direction: row;justify-content: space-between">
+    <md-card>
+      <md-card-title><md-toolbar>Касса</md-toolbar></md-card-title>
+      <md-card-subtitle>{{date}}</md-card-subtitle>
+      <md-card-content style="display: flex;flex-direction: row">
+
+        <div>
+          <md-input-container [color]="'warn'" style="font-size: 22px">
+            <input #sumDay mdInput type="number" [placeholder]="'касса день'">
+          </md-input-container>
+
+          <div>
+            <div>
+              <!--<button md-raised-button (click)="addSum(sumDay,sumNight)">plus</button>-->
+            </div>
+            <md-select [color]="'warn'" #sellerDay>
+              <md-option *ngFor="let seller of sellers" [value]="seller">{{seller}}</md-option>
+            </md-select>
+          </div>
+        </div>
+
+        <div>
+          <md-input-container style="font-size: 22px">
+            <input #sumNight mdInput type="number" [placeholder]="'касса ночь'">
+          </md-input-container>
+          <div>
+            <md-select #sellerNight>
+              <md-option *ngFor="let seller of sellers" [value]="seller">{{seller}}</md-option>
+            </md-select>
+          </div>
+        </div>
+      </md-card-content>
+    </md-card>
+
+    <md-card>
+      <md-card-title><md-toolbar>Приход</md-toolbar></md-card-title>
+      <md-card-subtitle>{{date}}</md-card-subtitle>
+      <md-card-content *ngFor="let incomeBlock of incomeBlocks; let incomeIndex = index" >
+        <md-input-container [color]="'warn'" style="font-size: 22px">
+          <input mdInput #incomeValue type="number" [placeholder]="'приход'">
+        </md-input-container>
+        <md-input-container [color]="'warn'" style="font-size: 22px">
+          <input mdInput type="text" #incomeDescription [placeholder]="'примечание'">
+        </md-input-container>
+        <button md-fab (click)="addIncomes(incomeValue.value, incomeIndex ,incomeDescription.value);incomeBlocks.push('')"><i class="material-icons">add</i> </button>
+      </md-card-content>
+
+
+      <md-card-actions></md-card-actions>
+    </md-card>
+
+  </md-card>
+
+
+  <md-card style="display: flex;flex-direction: row;justify-content: space-between">
+    <md-card>
+      <md-card-title><md-toolbar>Вложения</md-toolbar></md-card-title>
+      <md-card-subtitle>{{date}}</md-card-subtitle>
+      <md-card-content *ngFor="let investBlock of investBlocks">
+        <md-input-container [color]="'warn'" style="font-size: 22px">
+          <input mdInput type="number" [placeholder]="'списание'">
+        </md-input-container>
+        <md-input-container [color]="'warn'" style="font-size: 22px">
+          <input mdInput type="text" [placeholder]="'примечание'">
+        </md-input-container>
+
+      </md-card-content>
+      <button md-fab (click)="investBlocks.push('')"><i class="material-icons">add</i> </button>
+    </md-card>
+
+
+    <md-card>
+      <md-card-title><md-toolbar>Списания</md-toolbar></md-card-title>
+      <md-card-subtitle>{{date}}</md-card-subtitle>
+      <md-card-content *ngFor="let writeOffBlock of writeOffBlocks">
+        <md-input-container [color]="'warn'" style="font-size: 22px">
+          <input mdInput type="number" [placeholder]="'списание'">
+        </md-input-container>
+        <md-input-container [color]="'warn'" style="font-size: 22px">
+          <input mdInput type="text" [placeholder]="'примечание'">
+        </md-input-container>
+
+      </md-card-content>
+      <button md-fab (click)="writeOffBlocks.push('')"><i class="material-icons">add</i> </button>
+    </md-card>
+  </md-card>
+
+  <md-card-actions align="center">
+    <button md-raised-button style="font-size: 25px" (click)="addData(sumDay.value, sumNight.value, sellerDay.triggerValue , sellerNight.triggerValue, incomeTotal)">отправить данные</button>
+  </md-card-actions>
+</div>
