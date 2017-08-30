@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
+import {Component, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-main-page',
