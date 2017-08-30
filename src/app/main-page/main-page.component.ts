@@ -23,7 +23,7 @@ export class MainPageComponent {
     console.log(this.dataTotal);
   }
   addIncomes (incomes, index , description){
-    this.incomeBlocks[index] = {incomes , description};
+    this.incomeBlocks.push({incomes , description});
     console.log('itog', this.incomeBlocks);
   }
 }
