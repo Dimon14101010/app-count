@@ -26,5 +26,4 @@ export class MainPageComponent {
     this.incomeBlocks.push({incomes , description});
     console.log('itog', this.incomeBlocks);
   }
-
 }
